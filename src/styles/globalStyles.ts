@@ -1,8 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-
-function pixelToRem(...values: number[]) {
-  return values.reduce((acc, current) => `${acc}${current / 16}rem`, '').trim();
-}
+import pixelToRem from '../utils/pixToRem';
 
 export const GlobalStyles = createGlobalStyle`
 *{
@@ -11,19 +8,10 @@ export const GlobalStyles = createGlobalStyle`
   padding: 0;
 }
 
-html { 
-  @media(max-width: 1440px){
-    /* font-size: 93.75%; */
-  }
-
-  @media(max-width: 355px){
-    /* font-size: 87.5%; */
-  }
-}
-
 body { 
   -webkit-font-smoothing: antialiased;
   font-family: 'Heebo', sans-serif;
+  background-color: var(--space-dark) ;
 }
 
 :root {

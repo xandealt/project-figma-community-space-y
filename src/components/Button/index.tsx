@@ -1,12 +1,20 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { ButtonComponent } from './styles';
 
-interface ButtonProps {
-  text: string;
+export type IButtonProps = {
+  text?: string;
+  fullWidth: string;
+  fullHeight: string;
+};
+
+export function Button({ text, fullWidth, fullHeight }: IButtonProps) {
+  return (
+    <ButtonComponent fullWidth={fullWidth} fullHeight={fullHeight}>
+      {text}
+    </ButtonComponent>
+  );
 }
 
-function Button({ text }: ButtonProps) {
-  return <ButtonComponent>{text}</ButtonComponent>;
-}
-
-export default Button;
+Button.defaultProps = {
+  text: '',
+};
